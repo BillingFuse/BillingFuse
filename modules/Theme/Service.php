@@ -246,7 +246,7 @@ class Service implements InjectionAwareInterface
                 FROM setting
                 WHERE param = :param
                ";
-        $default = 'admin_default';
+        $default = 'admin';
         $theme = $this->di['db']->getCell($query, array('param'=>'admin_theme'));
         $path = BF_PATH_THEMES . DIRECTORY_SEPARATOR . $theme;
         if(null == $theme || !file_exists($path.$theme)){
@@ -305,7 +305,7 @@ class Service implements InjectionAwareInterface
         if ($client) {
             $theme   = $this->getCurrentClientAreaThemeCode();
         } else {
-            $default = 'admin_default';
+            $default = 'admin';
             $systemService = $this->di['mod_service']('system');
             $theme   = $systemService->getParamValue('admin_theme', $default);
         }

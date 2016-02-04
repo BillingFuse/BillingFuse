@@ -18,7 +18,7 @@ define('BF_PATH_ROOT',      dirname(__FILE__));
 define('BF_PATH_VENDOR',    BF_PATH_ROOT . '/vendor');
 define('BF_PATH_LIBRARY',   BF_PATH_ROOT . '/library');
 define('BF_PATH_THEMES',    BF_PATH_ROOT . '/templates');
-define('BF_PATH_MODS',      BF_PATH_ROOT . 'modules');
+define('BF_PATH_MODS',      BF_PATH_ROOT . '/modules');
 define('BF_PATH_LANGS',     BF_PATH_ROOT . '/locale');
 define('BF_PATH_UPLOADS',   BF_PATH_ROOT . '/uploads');
 define('BF_PATH_DATA',   BF_PATH_ROOT . '/data');

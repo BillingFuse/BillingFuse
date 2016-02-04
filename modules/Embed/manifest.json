@@ -1,0 +1,11 @@
+{
+    "id":           "embed",
+	"type":         "mod",
+    "name":         "Embed parts",
+    "description":  "Provides ability to embed parts of BillingFuse to other websites",
+    "homepage_url": "http://www.billingfuse.com/",
+    "author":       "BillingFuse",
+    "author_url":   "http://www.billingfuse.com/",
+    "license":      "GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html",
+    "version":      "1.0.1"
+}

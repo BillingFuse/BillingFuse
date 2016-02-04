@@ -1,0 +1,7 @@
+{
+    "id":           "page",
+	"type":         "mod",
+    "name":         "Page",
+    "description":  "BillingFuse core module",
+    "version":      "1.0.0"
+}

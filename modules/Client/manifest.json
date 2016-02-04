@@ -1,0 +1,8 @@
+{
+    "id":           "client",
+	"type":         "mod",
+    "name":         "Client",
+    "description":  "BillingFuse core module",
+    "icon_url":	    "icon.png",
+    "version":      "1.0.0"
+}

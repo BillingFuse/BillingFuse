@@ -1,0 +1,67 @@
+# RENAME THE FILE htaccess.txt TO .htaccess IN ORDER
+# ENABLE REWRITE RULES IN BillingFuse.
+#
+# IF YOU ARE RECEIVING "INTERNAL SERVER ERROR"
+# MAKE SURE mod_rewrite IS ENABLED IN APACHE
+
+
+Options -Indexes
+Options +FollowSymLinks
+
+RewriteEngine On
+
+# BEGIN - REWRITE RULES TO BLOCK OUT SOME COMMON EXPLOITS.
+# IF YOU EXPERIENCE PROBLEMS ON YOUR SITE BLOCK OUT THE OPERATIONS LISTED BELOW.
+# THIS ATTEMPTS TO BLOCK THE MOST COMMON TYPE OF EXPLOIT 'ATTEMPTS'.
+#
+# BLOCK OUT ANY SCRIPT TRYING TO BASE64_ENCODE DATA WITHIN THE URL.
+RewriteCond %{QUERY_STRING} base64_encode[^(]*\([^)]*\) [OR]
+# BLOCK OUT ANY SCRIPT THAT INCLUDES A <script> TAG IN URL.
+RewriteCond %{QUERY_STRING} (<|%3C)([^s]*s)+cript.*(>|%3E) [NC,OR]
+# BLOCK OUT ANY SCRIPT TRYING TO SET A PHP GLOBALS VARIABLE VIA URL.
+RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+# BLOCK OUT ANY SCRIPT TRYING TO MODIFY A _REQUEST VARIABLE VIA URL.
+RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+# RETURN 403 FORBIDDEN HEADER AND SHOW THE CONTENT OF THE ROOT HOMEPAGE.
+RewriteRule .* index.php [F]
+#
+## END - REWRITE RULES TO BLOCK OUT SOME COMMON EXPLOTIES.
+
+# REDIRECT TO WWWW
+# RewriteCond %{HTTP_HOST} ^yourdomain.com
+# RewriteRule (.*) http://www.yourdomain.com/$1 [R=301,L]
+
+# IF YOU ARE RECEIVING "Internal Server Error" message TUNE PATH
+# IF INSTALLING INTO SUBFOLDER, E.G. "RewriteBase /BillingFuse/"
+# RewriteBase /
+
+# FOR WINDOWS ENVIRONMENT WHEN API IS GIVING AUTHORIZATION ERROR.
+RewriteRule .? - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^(.*)$ index.php?_url=/$1 [QSA,L]
+
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak|phtml|sql)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+<IfModule mod_headers.c>
+    # MONTH
+    <FilesMatch "\.(flv|gif|jpg|jpeg|png|ico|swf)$">
+       Header set Cache-Control "max-age=2592000"
+    </FilesMatch>
+
+    # WEEK
+    <FilesMatch "\.(js|css|pdf|txt)$">
+       Header set Cache-Control "max-age=604800"
+    </FilesMatch>
+
+    # DAY
+    <FilesMatch "\.(html|htm)$">
+       Header set Cache-Control "max-age=43200"
+    </FilesMatch>
+</IfModule>

@@ -1,0 +1,11 @@
+{
+    "id":           "queue",
+    "type":         "mod",
+    "name":         "Queue manager",
+    "description":  "Execute long running tasks in queue",
+    "homepage_url": "http://www.billingfuse.com/",
+    "author":       "BillingFuse",
+    "author_url":   "http://www.billingfuse.com/",
+    "license":      "http://www.billingfuse.com/license.txt",
+    "version":      "1.0.0"
+}

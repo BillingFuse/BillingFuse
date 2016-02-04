@@ -1,0 +1,7 @@
+{
+    "id":           "index",
+	"type":         "mod",
+    "name":         "Index page module",
+    "description":  "BillingFuse core module",
+    "version":      "1.0.0"
+}

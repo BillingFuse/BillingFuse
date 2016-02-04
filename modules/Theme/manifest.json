@@ -1,0 +1,8 @@
+{
+    "id":           "theme",
+	"type":         "mod",
+    "name":         "Theme",
+    "description":  "BillingFuse core module",
+    "icon_url":     "icon.png",
+    "version":      "1.0.0"
+}

@@ -1,0 +1,11 @@
+{
+    "id":           "news",
+	"type":         "mod",
+    "name":         "News",
+    "description":  "News module for BillingFuse",
+    "homepage_url": "http://www.billingfuse.com/",
+    "author":       "BillingFuse",
+    "author_url":   "http://www.billingfuse.com/",
+    "license":      "http://www.billingfuse.com/license.txt",
+    "version":      "1.0.0"
+}

@@ -1,0 +1,12 @@
+{
+    "id":           "forum",
+	"type":         "mod",
+    "name":         "Forum",
+    "description":  "Forum for BillingFuse",
+    "icon_url":     "icon.png",
+    "homepage_url": "http://www.billingfuse.com/",
+    "author":       "BillingFuse",
+    "author_url":   "http://www.billingfuse.com/",
+    "license":      "http://www.billingfuse.com/license.txt",
+    "version":      "1.2.0"
+}

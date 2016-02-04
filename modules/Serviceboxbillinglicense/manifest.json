@@ -1,0 +1,12 @@
+{
+    "id":           "servicebillingfuselicense",
+	"type":         "mod",
+    "name":         "BillingFuse license product",
+    "description":  "Sell BillingFuse licenses and get paid. The more you sell - more profit you make",
+    "icon_url":     "icon.png",
+    "homepage_url": "http://www.billingfuse.com/",
+    "author":       "BillingFuse",
+    "author_url":   "http://www.billingfuse.com/",
+    "license":      "http://www.billingfuse.com/license.txt",
+    "version":      "1.0.0"
+}

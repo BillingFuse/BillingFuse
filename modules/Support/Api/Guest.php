@@ -1,0 +1,108 @@
+<?php
+/*
+*
+* BillingFuse
+*
+* @copyright 2016 BillingFuse International Limited.
+*
+* @license Apache V2.0
+*
+* THIS SOURCE CODE FORM IS SUBJECT TO THE TERMS OF THE PUBLIC
+* APACHE LICENSE V2.0. A COMPLETE COPY OF THE LICENSE TEXT IS
+* INCLUDED IN THE LICENSE FILE. 
+*
+*/
+
+/**
+ * Public tickets management
+ */
+namespace Fuse\Mod\Support\Api;
+class Guest extends \Api_Abstract
+{
+    /**
+     * Submit new public ticket
+     *
+     * @param string $name - Ticket author name
+     * @param string $email - Ticket author email
+     * @param string $subject - Ticket subject
+     * @param string $message - Ticket message
+     *
+     * @return string - ticket hash
+     */
+    public function ticket_create($data)
+    {
+        $required = array(
+            'name'    => 'Please enter your name',
+            'email'   => 'Please enter your email',
+            'subject' => 'Please enter your subject',
+            'message' => 'Please enter your message',
+        );
+        $this->di['validator']->checkRequiredParamsForArray($required, $data);
+
+        if (strlen($data['message']) < 4) {
+            throw new \Fuse_Exception('Please enter your message');
+        }
+        
+        return $this->getService()->ticketCreateForGuest($data);
+    }
+
+    /**
+     * Get public ticket
+     *
+     * @param string $hash - public ticket hash
+     *
+     * @return array - ticket details
+     */
+    public function ticket_get($data)
+    {
+        $required = array(
+            'hash' => 'Public ticket hash required',
+        );
+        $this->di['validator']->checkRequiredParamsForArray($required, $data);
+
+        $publicTicket = $this->getService()->publicFindOneByHash($data['hash']);
+
+        return $this->getService()->publicToApiArray($publicTicket);
+    }
+
+    /**
+     * Close public ticket
+     *
+     * @param string $hash - public ticket hash
+     *
+     * @return bool
+     */
+    public function ticket_close($data)
+    {
+        $required = array(
+            'hash' => 'Public ticket hash required',
+        );
+        $this->di['validator']->checkRequiredParamsForArray($required, $data);
+
+        $publicTicket = $this->getService()->publicFindOneByHash($data['hash']);
+
+        return $this->getService()->publicCloseTicket($publicTicket, $this->getIdentity());
+    }
+
+    /**
+     * Reply to public ticket
+     *
+     * @param string $hash - public ticket hash
+     * @param string $message - public ticket reply message
+     *
+     * @return string - ticket hash
+     *
+     */
+    public function ticket_reply($data)
+    {
+        $required = array(
+            'hash'    => 'Public ticket hash required',
+            'message' => 'Message is required and can not be blank',
+        );
+        $this->di['validator']->checkRequiredParamsForArray($required, $data);
+
+        $publicTicket = $this->getService()->publicFindOneByHash($data['hash']);
+
+        return $this->getService()->publicTicketReplyForGuest($publicTicket, $data['message']);
+    }
+}

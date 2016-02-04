@@ -1,0 +1,7 @@
+{
+    "id":           "servicedownloadable",
+	"type":         "mod",
+    "name":         "Downloadable product type",
+    "description":  "BillingFuse core module",
+    "version":      "1.0.0"
+}

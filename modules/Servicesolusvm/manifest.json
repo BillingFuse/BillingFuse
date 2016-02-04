@@ -1,0 +1,12 @@
+{
+    "id":           "servicesolusvm",
+	"type":         "mod",
+    "name":         "SolusVM product",
+    "description":  "Sell virtual servers using SolusVM extension for BillingFuse",
+    "icon_url":     "icon.png",
+    "homepage_url": "http://www.billingfuse.com/",
+    "author":       "BillingFuse",
+    "author_url":   "http://www.billingfuse.com/",
+    "license":      "http://www.billingfuse.com/license.txt",
+    "version":      "1.0.0"
+}

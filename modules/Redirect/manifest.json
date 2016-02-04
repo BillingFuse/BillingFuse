@@ -1,0 +1,10 @@
+{
+    "id":           "redirect",
+	"type":         "mod",
+    "name":         "Redirect",
+    "icon_url":     "icon.png",
+    "description":  "Manage redirects",
+    "author":       "BillingFuse",
+    "author_url":   "http://www.billingfuse.com",
+    "version":      "1.0.0"
+}

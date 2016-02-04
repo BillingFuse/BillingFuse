@@ -1,0 +1,22 @@
+# IF YOUR SITE IS INSTALLED WITHIN A DIRECTORY SUCH AS 
+# e.g. example.com/BillingFuse/ THE ROBOTS.TXT FILE MUST BE 
+# MOVED TO THE SITE ROOT AT e.g. example.com/robots.txt
+#
+# NOTE: THE FOLDER NAME MUST BE PREFIXED TO THE DISALLOWED
+# PATH, e.g. THE DISALLOW RULE FOR THE /data/ FOLDER MUST 
+# BE CHANGED TO READ DISALLOW: /BillingFuse/data
+#
+# FOR MORE INFORMATION ABOUT THE ROBOTS.TXT STANDARDS:
+# http://www.robotstxt.org/orig.html
+#
+# FOR SYNTAX CHECKING:
+# http://www.sxw.org.uk/computing/robots/check.html
+
+User-agent: *
+Disallow: /data/
+Disallow: /library/
+Disallow: /locale/
+Disallow: /modules/
+Disallow: /uploads/
+Disallow: /vendor/
+Disallow: /install/
